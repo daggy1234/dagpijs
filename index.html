@@ -114,11 +114,12 @@ cl.image_process(<span class="hljs-string">&quot;invert&quot;</span>,{ <span cla
 				<a href="#discordjs-image" id="discordjs-image" style="color: inherit; text-decoration: none;">
 					<h3>DiscordJs Image</h3>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">const</span> Discord, { MessageAttachment } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;discord.js&#x27;</span>);
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> Discord = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;discord.js&#x27;</span>);
+<span class="hljs-keyword">const</span> { MessageAttachment } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;discord.js&#x27;</span>)
 <span class="hljs-keyword">const</span> {Client} = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;dagpijs&quot;</span>);
 
 <span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Discord.Client();
-<span class="hljs-keyword">const</span> cl = <span class="hljs-keyword">new</span> Client(<span class="hljs-string">&quot;Dagpi token&quot;</span>)
+<span class="hljs-keyword">const</span> cl = <span class="hljs-keyword">new</span> Client(<span class="hljs-string">&quot;dagpi token&quot;</span>)
 
 client.on(<span class="hljs-string">&#x27;ready&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;I am ready!&#x27;</span>);
@@ -126,15 +127,16 @@ client.on(<span class="hljs-string">&#x27;ready&#x27;</span>, <span class="hljs-
 
 
 client.on(<span class="hljs-string">&#x27;message&#x27;</span>, <span class="hljs-keyword">async</span> (message) =&gt; {
-    <span class="hljs-keyword">if</span> (message.content == <span class="hljs-string">&quot;gay&quot;</span>) {
-        <span class="hljs-keyword">const</span> url = message.author.displayAvatarURL();
+    <span class="hljs-keyword">if</span> (message.content == <span class="hljs-string">&quot;!gay&quot;</span>) {
+        <span class="hljs-keyword">const</span> url = message.author.displayAvatarURL().replace(<span class="hljs-string">&quot;.webp&quot;</span>,<span class="hljs-string">&quot;.png&quot;</span>);
+        <span class="hljs-built_in">console</span>.log(url);
         <span class="hljs-keyword">const</span> img = <span class="hljs-keyword">await</span> cl.image_process(<span class="hljs-string">&quot;gay&quot;</span>, {<span class="hljs-attr">url</span> : url});
         <span class="hljs-keyword">const</span> attachment = <span class="hljs-keyword">new</span> MessageAttachment(img.image);
         message.channel.send(attachment);
     }
 });
 
-client.login(<span class="hljs-string">&quot;discord token&quot;</span>);</code></pre>
+client.login(<span class="hljs-string">&quot;discord token&quot;</span>)</code></pre>
 				<a href="#contributing" id="contributing" style="color: inherit; text-decoration: none;">
 					<h2>Contributing</h2>
 				</a>
