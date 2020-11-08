@@ -57,11 +57,12 @@ async (): string => {
 ### DiscordJs Image
 
 ```js
-const Discord, { MessageAttachment } = require('discord.js');
+const Discord = require('discord.js');
+const { MessageAttachment } = require('discord.js')
 const {Client} = require("dagpijs");
 
 const client = new Discord.Client();
-const cl = new Client("Dagpi token")
+const cl = new Client("dagpi token")
 
 client.on('ready', () => {
   console.log('I am ready!');
@@ -69,15 +70,16 @@ client.on('ready', () => {
 
 
 client.on('message', async (message) => {
-    if (message.content == "gay") {
-        const url = message.author.displayAvatarURL();
+    if (message.content == "!gay") {
+        const url = message.author.displayAvatarURL().replace(".webp",".png");
+        console.log(url);
         const img = await cl.image_process("gay", {url : url});
         const attachment = new MessageAttachment(img.image);
         message.channel.send(attachment);
     }
 });
 
-client.login("discord token");
+client.login("discord token")
 ```
 
 ## Contributing
