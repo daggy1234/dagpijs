@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "declaration": true,
+    "outDir": "./lib",
+    "downlevelIteration": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "alwaysStrict": true,
+    "typeRoots": [
+      "node_modules/@types",
+      "src/models.ts"
+    ],
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "inlineSourceMap": true,
+    "skipLibCheck": true,
+    "removeComments": true
+  },
+  "include": [
+    "src"
+  ],
+}

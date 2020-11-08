@@ -1,0 +1,192 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>dagpijs</title>
+	<meta name="description" content="Documentation for dagpijs">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">dagpijs</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>dagpijs</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#dagpijs" id="dagpijs" style="color: inherit; text-decoration: none;">
+					<h1>Dagpijs</h1>
+				</a>
+				<p>A fast and strongly typed promise based wrapper for <a href="https://dagpi.xyz">https://dagpi.xyz</a></p>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<pre><code class="language-bash"><span class="hljs-comment">#npm</span>
+npm i dagpijs
+
+<span class="hljs-comment">#yarn</span>
+yarn add dagpijs</code></pre>
+				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
+					<h2>Examples</h2>
+				</a>
+				<p>The example below explain a few common use cases</p>
+				<a href="#basic-data" id="basic-data" style="color: inherit; text-decoration: none;">
+					<h3>Basic Data</h3>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Client } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;dagpijs&quot;</span>;
+
+<span class="hljs-keyword">const</span> cl = <span class="hljs-keyword">new</span> Client(<span class="hljs-string">&quot;dagpi token&quot;</span>);
+
+cl.roast().then(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(res.roast));</code></pre>
+				<a href="#basic-image-to-file" id="basic-image-to-file" style="color: inherit; text-decoration: none;">
+					<h3>Basic Image to file</h3>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> {Client} <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;dagpijs&quot;</span>;
+<span class="hljs-keyword">import</span> {writeFile} <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;fs&quot;</span>;
+
+<span class="hljs-keyword">const</span> cl = <span class="hljs-keyword">new</span> CLient(<span class="hljs-string">&quot;dagpi token&quot;</span>);
+
+cl.image_process(<span class="hljs-string">&quot;invert&quot;</span>,{ <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://dagbot-is.the-be.st/logo.png&quot;</span>}).then(<span class="hljs-function">(<span class="hljs-params">img</span>) =&gt;</span> {
+    writeFile(<span class="hljs-string">`invert.<span class="hljs-subst">${img.format}</span>`</span>, img.image, <span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(err.message))
+});</code></pre>
+				<a href="#strong-data-typing-typescript" id="strong-data-typing-typescript" style="color: inherit; text-decoration: none;">
+					<h3>Strong Data Typing (Typescript)</h3>
+				</a>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> {Client, models} <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;dagpijs&quot;</span>
+
+<span class="hljs-keyword">let</span> cl = <span class="hljs-keyword">new</span> CLient(<span class="hljs-string">&quot;dagpi token&quot;</span>)
+
+<span class="hljs-keyword">async</span> (): <span class="hljs-function"><span class="hljs-params">string</span> =&gt;</span> {
+    <span class="hljs-attr">roast</span>: models.roast = <span class="hljs-keyword">await</span> cl.joke()
+    <span class="hljs-keyword">return</span> roast.roast
+}</code></pre>
+				<a href="#discordjs-image" id="discordjs-image" style="color: inherit; text-decoration: none;">
+					<h3>DiscordJs Image</h3>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> Discord, { MessageAttachment } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;discord.js&#x27;</span>);
+<span class="hljs-keyword">const</span> {Client} = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;dagpijs&quot;</span>);
+
+<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Discord.Client();
+<span class="hljs-keyword">const</span> cl = <span class="hljs-keyword">new</span> Client(<span class="hljs-string">&quot;Dagpi token&quot;</span>)
+
+client.on(<span class="hljs-string">&#x27;ready&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;I am ready!&#x27;</span>);
+});
+
+
+client.on(<span class="hljs-string">&#x27;message&#x27;</span>, <span class="hljs-keyword">async</span> (message) =&gt; {
+    <span class="hljs-keyword">if</span> (message.content == <span class="hljs-string">&quot;gay&quot;</span>) {
+        <span class="hljs-keyword">const</span> url = message.author.displayAvatarURL();
+        <span class="hljs-keyword">const</span> img = <span class="hljs-keyword">await</span> cl.image_process(<span class="hljs-string">&quot;gay&quot;</span>, {<span class="hljs-attr">url</span> : url});
+        <span class="hljs-keyword">const</span> attachment = <span class="hljs-keyword">new</span> MessageAttachment(img.image);
+        message.channel.send(attachment);
+    }
+});
+
+client.login(<span class="hljs-string">&quot;discord token&quot;</span>);</code></pre>
+				<a href="#contributing" id="contributing" style="color: inherit; text-decoration: none;">
+					<h2>Contributing</h2>
+				</a>
+				<p>Feel free to fork the repo and make PR&#39;s.!</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_client_.html">&quot;client&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_errors_.html">&quot;errors&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_image_.html">&quot;image&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_models_.html">&quot;models&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
