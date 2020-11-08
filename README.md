@@ -1,5 +1,7 @@
 # Dagpijs
 
+![Dagpi](https://img.shields.io/github/workflow/status/daggy1234/dagpijs/testing%20and%20linting?label=actions&logo=github) [![Docs](https://img.shields.io/github/workflow/status/daggy1234/dagpijs/Build%20and%20Deploy?label=docs)](https://daggy1234.github.io/dagpijs/) ![License](https://img.shields.io/github/license/daggy1234/dagpijs) [![Npm](https://img.shields.io/npm/v/dagpijs?color=red&logo=npm)](https://npmjs.com/package/dagpijs) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/565809c35b494c5a944393c5352a7761)](https://www.codacy.com/gh/Daggy1234/dagpijs/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Daggy1234/dagpijs&amp;utm_campaign=Badge_Grade) 
+
 A fast and strongly typed promise based wrapper for https://dagpi.xyz
 
 **Read the documentation: https://daggy1234.github.io/dagpijs/**
