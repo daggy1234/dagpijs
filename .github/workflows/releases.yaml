@@ -12,9 +12,9 @@ jobs:
       with:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
-    - run: yarn install
-    - run: yarn build
-    - run: yarn publish
+    - run: npm install
+    - run: npm run build
+    - run: npm  publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     - uses: actions/setup-node@v1
@@ -23,6 +23,6 @@ jobs:
         # Defaults to the user or organization that owns the workflow file
         scope: '@octocat'
     # Publish to GitHub Packages
-    - run: yarn publish
+    - run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
