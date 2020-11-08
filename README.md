@@ -2,6 +2,8 @@
 
 A fast and strongly typed promise based wrapper for https://dagpi.xyz
 
+**Read the documentation: https://daggy1234.github.io/dagpijs/**
+
 ## Installation
 
 ```bash
@@ -11,7 +13,6 @@ npm i dagpijs
 #yarn
 yarn add dagpijs
 ```
-
 
 ## Examples
 
@@ -28,7 +29,6 @@ cl.roast().then((res) => console.log(res.roast));
 ```
 
 ### Basic Image to file
-
 
 ```js
 import {Client} from "dagpijs";
@@ -83,4 +83,3 @@ client.login("discord token");
 ## Contributing
 
 Feel free to fork the repo and make PR's.!
-

@@ -8,6 +8,14 @@
     "lib/**/*"
   ],
   "repository": "https://github.com/daggy1234/dagpi.js",
+  "keywords": [
+    "api",
+    "image",
+    "data",
+    "wrapper",
+    "typescript",
+    "discord"
+  ],
   "author": "daggy1234",
   "license": "MIT",
   "private": false,
