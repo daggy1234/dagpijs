@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosResponse } from "axios";
-import { wtp, joke, logo, pickupline, roast, yomama, image_props, ImageFeature, format } from "./models";
+import { wtp, joke, logo, pickupline, roast, yomama, image_props, ImageFeature, format, fact, headline, Eightball } from "./models";
 import { Unauthorised, BadUrl } from "./errors";
 import {error_response} from "./handlers";
 import image from "./image";
@@ -18,7 +18,7 @@ export default class Client {
     private http: AxiosInstance
 
     /** The version of the API used */
-    public version: number
+    public version: string
 
     public constructor(token: string) {
         if (!token) {
@@ -34,7 +34,7 @@ export default class Client {
         this.http.interceptors.response.use((response) => {
             return response;
         }, (error) => error_response(error));
-        this.version = 1.0;
+        this.version = "1.0.5";
     }
 
     /** Get a random joke */
@@ -71,6 +71,20 @@ export default class Client {
     /** Get a waifu object */
     public async waifu(): Promise<any> {
         return this.request<any>("waifu");
+    }
+    
+    /** Get a random fact */
+    public async fact(): Promise<fact> {
+        return this.request<fact>("fact");
+    }
+
+    /** Get a random fact */
+    public async eight_ball(): Promise<Eightball> {
+        return this.request<Eightball>("8ball");
+    }
+
+    public async headline(): Promise<headline> {
+        return this.request<headline>("headline");
     }
 
     /**

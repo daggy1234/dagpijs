@@ -23,7 +23,7 @@ The example below explain a few common use cases
 ### Basic Data
 
 ```js
-import { Client } from "dagpijs";
+const {Client} = require("dagpijs");
 
 const cl = new Client("dagpi token");
 

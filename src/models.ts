@@ -23,6 +23,7 @@ export interface wtp {
     answer: string;
 }
 
+
 /** Dagpi puckupline object */
 export interface pickupline {
     category: string;
@@ -33,6 +34,22 @@ export interface pickupline {
 export interface yomama {
     joke: string;
 }
+
+/** Dagpi 8ball response */
+export interface Eightball {
+    response: string;
+}
+
+/** Dagpi Fact */
+export interface fact {
+    fact: string;
+}
+/** Dagpi Headline */
+export interface headline {
+    headline: string;
+    fake: boolean;
+}
+
 
 /** represents a dagpi roast */
 export interface roast {
@@ -65,6 +82,9 @@ export interface image_props {
 
     /** Username of User (certain Endpoints) */
     username? : string;
+
+    /** Wether or not to use Dark theme */
+    dark?: boolean;
 } 
 
 /** Available Image features for DAGPI */
@@ -107,6 +127,12 @@ export type ImageFeature =
     | "tweet"
     | "discord"
     | "modernmeme"
+    | "yt"
+    | "rainbow"
+    | "shatter"
+    | "captcha"
+    | "pride"
+    | "fedora"
 
 /** Image formats returned by dagpi */
 export type format = 

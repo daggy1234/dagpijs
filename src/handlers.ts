@@ -4,7 +4,15 @@ import {Unauthorised, Ratelimited, ApiError, FileToLarge, ImageUnaccesible, Para
 
 
 export function error_response(error: any): Promise<never> {
-    const js = JSON.parse(error.response.data.toString("utf8"));
+    // eslint-disable-next-line no-var
+    var js = error.response.data;
+    if (!(error.request.path.includes("data"))) {
+        try {
+            js = JSON.parse(error.response.data.toString("utf8"));
+        } catch (err) {
+            js = error.response.data.toString("utf8");
+        }
+    }
     switch(error.response.status) {
     case 403:
         throw new Unauthorised("Invalid Token provided");

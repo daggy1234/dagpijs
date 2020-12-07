@@ -2,3 +2,4 @@ lib/
 node_modules/
 docs/
 nice.txt
+test.js
