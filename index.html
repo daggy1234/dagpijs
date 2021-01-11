@@ -7,7 +7,6 @@
 	<meta name="description" content="Documentation for dagpijs">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
-	<script async src="assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
@@ -41,6 +40,8 @@
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
 							<input type="checkbox" id="tsd-filter-externals" checked />
 							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -50,6 +51,11 @@
 	</div>
 	<div class="tsd-page-title">
 		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
 			<h1>dagpijs</h1>
 		</div>
 	</div>
@@ -67,12 +73,11 @@
 				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
 					<h2>Installation</h2>
 				</a>
-				<pre><code class="language-bash"><span style="color: #008000">#npm</span>
-<span style="color: #000000">npm i dagpijs</span>
+				<pre><code class="language-bash"><span class="hljs-comment">#npm</span>
+npm i dagpijs
 
-<span style="color: #008000">#yarn</span>
-<span style="color: #000000">yarn add dagpijs</span>
-</code></pre>
+<span class="hljs-comment">#yarn</span>
+yarn add dagpijs</code></pre>
 				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
 					<h2>Examples</h2>
 				</a>
@@ -80,63 +85,59 @@
 				<a href="#basic-data" id="basic-data" style="color: inherit; text-decoration: none;">
 					<h3>Basic Data</h3>
 				</a>
-				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> {</span><span style="color: #0070C1">Client</span><span style="color: #000000">} = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;dagpijs&quot;</span><span style="color: #000000">);</span>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> {Client} = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;dagpijs&quot;</span>);
 
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">cl</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">Client</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;dagpi token&quot;</span><span style="color: #000000">);</span>
+<span class="hljs-keyword">const</span> cl = <span class="hljs-keyword">new</span> Client(<span class="hljs-string">&quot;dagpi token&quot;</span>);
 
-<span style="color: #001080">cl</span><span style="color: #000000">.</span><span style="color: #795E26">roast</span><span style="color: #000000">().</span><span style="color: #795E26">then</span><span style="color: #000000">((</span><span style="color: #001080">res</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">res</span><span style="color: #000000">.</span><span style="color: #001080">roast</span><span style="color: #000000">));</span>
-</code></pre>
+cl.roast().then(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(res.roast));</code></pre>
 				<a href="#basic-image-to-file" id="basic-image-to-file" style="color: inherit; text-decoration: none;">
 					<h3>Basic Image to file</h3>
 				</a>
-				<pre><code class="language-js"><span style="color: #AF00DB">import</span><span style="color: #000000"> {</span><span style="color: #001080">Client</span><span style="color: #000000">} </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;dagpijs&quot;</span><span style="color: #000000">;</span>
-<span style="color: #AF00DB">import</span><span style="color: #000000"> {</span><span style="color: #001080">writeFile</span><span style="color: #000000">} </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;fs&quot;</span><span style="color: #000000">;</span>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> {Client} <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;dagpijs&quot;</span>;
+<span class="hljs-keyword">import</span> {writeFile} <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;fs&quot;</span>;
 
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">cl</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">CLient</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;dagpi token&quot;</span><span style="color: #000000">);</span>
+<span class="hljs-keyword">const</span> cl = <span class="hljs-keyword">new</span> CLient(<span class="hljs-string">&quot;dagpi token&quot;</span>);
 
-<span style="color: #001080">cl</span><span style="color: #000000">.</span><span style="color: #795E26">image_process</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;invert&quot;</span><span style="color: #000000">,{ </span><span style="color: #001080">url:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;https://dagbot-is.the-be.st/logo.png&quot;</span><span style="color: #000000">}).</span><span style="color: #795E26">then</span><span style="color: #000000">((</span><span style="color: #001080">img</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">    </span><span style="color: #795E26">writeFile</span><span style="color: #000000">(</span><span style="color: #A31515">`invert.</span><span style="color: #0000FF">${</span><span style="color: #001080">img</span><span style="color: #000000FF">.</span><span style="color: #001080">format</span><span style="color: #0000FF">}</span><span style="color: #A31515">`</span><span style="color: #000000">, </span><span style="color: #001080">img</span><span style="color: #000000">.</span><span style="color: #001080">image</span><span style="color: #000000">, (</span><span style="color: #001080">err</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">.</span><span style="color: #001080">message</span><span style="color: #000000">))</span>
-<span style="color: #000000">});</span>
-</code></pre>
+cl.image_process(<span class="hljs-string">&quot;invert&quot;</span>,{ <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://dagbot-is.the-be.st/logo.png&quot;</span>}).then(<span class="hljs-function">(<span class="hljs-params">img</span>) =&gt;</span> {
+    writeFile(<span class="hljs-string">`invert.<span class="hljs-subst">${img.format}</span>`</span>, img.image, <span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(err.message))
+});</code></pre>
 				<a href="#strong-data-typing-typescript" id="strong-data-typing-typescript" style="color: inherit; text-decoration: none;">
 					<h3>Strong Data Typing (Typescript)</h3>
 				</a>
-				<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> {</span><span style="color: #001080">Client</span><span style="color: #000000">, </span><span style="color: #001080">models</span><span style="color: #000000">} </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;dagpijs&quot;</span>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> {Client, models} <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;dagpijs&quot;</span>
 
-<span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">cl</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">CLient</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;dagpi token&quot;</span><span style="color: #000000">)</span>
+<span class="hljs-keyword">let</span> cl = <span class="hljs-keyword">new</span> CLient(<span class="hljs-string">&quot;dagpi token&quot;</span>)
 
-<span style="color: #0000FF">async</span><span style="color: #000000"> (): </span><span style="color: #267F99">string</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">    roast: </span><span style="color: #001080">models</span><span style="color: #000000">.</span><span style="color: #001080">roast</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">cl</span><span style="color: #000000">.</span><span style="color: #795E26">joke</span><span style="color: #000000">()</span>
-<span style="color: #000000">    </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">roast</span><span style="color: #000000">.</span><span style="color: #001080">roast</span>
-<span style="color: #000000">}</span>
-</code></pre>
+<span class="hljs-keyword">async</span> (): <span class="hljs-function"><span class="hljs-params">string</span> =&gt;</span> {
+    <span class="hljs-attr">roast</span>: models.roast = <span class="hljs-keyword">await</span> cl.joke()
+    <span class="hljs-keyword">return</span> roast.roast
+}</code></pre>
 				<a href="#discordjs-image" id="discordjs-image" style="color: inherit; text-decoration: none;">
 					<h3>DiscordJs Image</h3>
 				</a>
-				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">Discord</span><span style="color: #000000"> = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;discord.js&#039;</span><span style="color: #000000">);</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">MessageAttachment</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;discord.js&#039;</span><span style="color: #000000">)</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> {</span><span style="color: #0070C1">Client</span><span style="color: #000000">} = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;dagpijs&quot;</span><span style="color: #000000">);</span>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> Discord = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;discord.js&#x27;</span>);
+<span class="hljs-keyword">const</span> { MessageAttachment } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;discord.js&#x27;</span>)
+<span class="hljs-keyword">const</span> {Client} = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;dagpijs&quot;</span>);
 
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">Discord</span><span style="color: #000000">.</span><span style="color: #267F99">Client</span><span style="color: #000000">();</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">cl</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">Client</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;dagpi token&quot;</span><span style="color: #000000">)</span>
+<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Discord.Client();
+<span class="hljs-keyword">const</span> cl = <span class="hljs-keyword">new</span> Client(<span class="hljs-string">&quot;dagpi token&quot;</span>)
 
-<span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;ready&#039;</span><span style="color: #000000">, () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;I am ready!&#039;</span><span style="color: #000000">);</span>
-<span style="color: #000000">});</span>
+client.on(<span class="hljs-string">&#x27;ready&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;I am ready!&#x27;</span>);
+});
 
 
-<span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;message&#039;</span><span style="color: #000000">, </span><span style="color: #0000FF">async</span><span style="color: #000000"> (</span><span style="color: #001080">message</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">    </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">message</span><span style="color: #000000">.</span><span style="color: #001080">content</span><span style="color: #000000"> == </span><span style="color: #A31515">&quot;!gay&quot;</span><span style="color: #000000">) {</span>
-<span style="color: #000000">        </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">url</span><span style="color: #000000"> = </span><span style="color: #001080">message</span><span style="color: #000000">.</span><span style="color: #001080">author</span><span style="color: #000000">.</span><span style="color: #795E26">displayAvatarURL</span><span style="color: #000000">().</span><span style="color: #795E26">replace</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;.webp&quot;</span><span style="color: #000000">,</span><span style="color: #A31515">&quot;.png&quot;</span><span style="color: #000000">);</span>
-<span style="color: #000000">        </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">url</span><span style="color: #000000">);</span>
-<span style="color: #000000">        </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">img</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">cl</span><span style="color: #000000">.</span><span style="color: #795E26">image_process</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;gay&quot;</span><span style="color: #000000">, {</span><span style="color: #001080">url :</span><span style="color: #000000"> </span><span style="color: #001080">url</span><span style="color: #000000">});</span>
-<span style="color: #000000">        </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">attachment</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">MessageAttachment</span><span style="color: #000000">(</span><span style="color: #001080">img</span><span style="color: #000000">.</span><span style="color: #001080">image</span><span style="color: #000000">);</span>
-<span style="color: #000000">        </span><span style="color: #001080">message</span><span style="color: #000000">.</span><span style="color: #001080">channel</span><span style="color: #000000">.</span><span style="color: #795E26">send</span><span style="color: #000000">(</span><span style="color: #001080">attachment</span><span style="color: #000000">);</span>
-<span style="color: #000000">    }</span>
-<span style="color: #000000">});</span>
+client.on(<span class="hljs-string">&#x27;message&#x27;</span>, <span class="hljs-keyword">async</span> (message) =&gt; {
+    <span class="hljs-keyword">if</span> (message.content == <span class="hljs-string">&quot;!gay&quot;</span>) {
+        <span class="hljs-keyword">const</span> url = message.author.displayAvatarURL().replace(<span class="hljs-string">&quot;.webp&quot;</span>,<span class="hljs-string">&quot;.png&quot;</span>);
+        <span class="hljs-built_in">console</span>.log(url);
+        <span class="hljs-keyword">const</span> img = <span class="hljs-keyword">await</span> cl.image_process(<span class="hljs-string">&quot;gay&quot;</span>, {<span class="hljs-attr">url</span> : url});
+        <span class="hljs-keyword">const</span> attachment = <span class="hljs-keyword">new</span> MessageAttachment(img.image);
+        message.channel.send(attachment);
+    }
+});
 
-<span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">login</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;discord token&quot;</span><span style="color: #000000">)</span>
-</code></pre>
+client.login(<span class="hljs-string">&quot;discord token&quot;</span>)</code></pre>
 				<a href="#contributing" id="contributing" style="color: inherit; text-decoration: none;">
 					<h2>Contributing</h2>
 				</a>
@@ -146,23 +147,20 @@
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class=" ">
-						<a href="modules.html">Exports</a>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/client.html">client</a>
+						<a href="modules/_client_.html">&quot;client&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/errors.html">errors</a>
+						<a href="modules/_errors_.html">&quot;errors&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/image.html">image</a>
+						<a href="modules/_image_.html">&quot;image&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/index.html">index</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/models.html">models</a>
+						<a href="modules/_models_.html">&quot;models&quot;</a>
 					</li>
 				</ul>
 			</nav>
