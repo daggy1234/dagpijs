@@ -77,7 +77,8 @@
 npm i dagpijs
 
 <span class="hljs-comment">#yarn</span>
-yarn add dagpijs</code></pre>
+yarn add dagpijs
+</code></pre>
 				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
 					<h2>Examples</h2>
 				</a>
@@ -89,7 +90,8 @@ yarn add dagpijs</code></pre>
 
 <span class="hljs-keyword">const</span> cl = <span class="hljs-keyword">new</span> Client(<span class="hljs-string">&quot;dagpi token&quot;</span>);
 
-cl.roast().then(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(res.roast));</code></pre>
+cl.roast().then(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(res.roast));
+</code></pre>
 				<a href="#basic-image-to-file" id="basic-image-to-file" style="color: inherit; text-decoration: none;">
 					<h3>Basic Image to file</h3>
 				</a>
@@ -100,7 +102,8 @@ cl.roast().then(<span class="hljs-function">(<span class="hljs-params">res</span
 
 cl.image_process(<span class="hljs-string">&quot;invert&quot;</span>,{ <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://dagbot-is.the-be.st/logo.png&quot;</span>}).then(<span class="hljs-function">(<span class="hljs-params">img</span>) =&gt;</span> {
     writeFile(<span class="hljs-string">`invert.<span class="hljs-subst">${img.format}</span>`</span>, img.image, <span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(err.message))
-});</code></pre>
+});
+</code></pre>
 				<a href="#strong-data-typing-typescript" id="strong-data-typing-typescript" style="color: inherit; text-decoration: none;">
 					<h3>Strong Data Typing (Typescript)</h3>
 				</a>
@@ -111,7 +114,8 @@ cl.image_process(<span class="hljs-string">&quot;invert&quot;</span>,{ <span cla
 <span class="hljs-keyword">async</span> (): <span class="hljs-function"><span class="hljs-params">string</span> =&gt;</span> {
     <span class="hljs-attr">roast</span>: models.roast = <span class="hljs-keyword">await</span> cl.joke()
     <span class="hljs-keyword">return</span> roast.roast
-}</code></pre>
+}
+</code></pre>
 				<a href="#discordjs-image" id="discordjs-image" style="color: inherit; text-decoration: none;">
 					<h3>DiscordJs Image</h3>
 				</a>
@@ -137,7 +141,8 @@ client.on(<span class="hljs-string">&#x27;message&#x27;</span>, <span class="hlj
     }
 });
 
-client.login(<span class="hljs-string">&quot;discord token&quot;</span>)</code></pre>
+client.login(<span class="hljs-string">&quot;discord token&quot;</span>)
+</code></pre>
 				<a href="#contributing" id="contributing" style="color: inherit; text-decoration: none;">
 					<h2>Contributing</h2>
 				</a>
