@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/daggy1234/dagpi.js/compare/v1.0.5...v1.1.1) (2021-02-25)
+
 ### [1.0.5](https://github.com/daggy1234/dagpi.js/compare/v1.0.4...v1.0.5) (2020-12-07)
 
 - Image Commands (check server for more)
