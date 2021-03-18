@@ -31,10 +31,11 @@ export default class Client {
 
         this.http.defaults.headers["Authorization"] = token;
         this.http.defaults.headers["User-Agent"] = "dagpi.js";
-        this.http.interceptors.response.use((response) => {
+        this.http.interceptors.response.use((response: any) => {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-return
             return response;
         }, (error) => error_response(error));
-        this.version = "1.0.5";
+        this.version = "1.1.3";
     }
 
     /** Get a random joke */
@@ -83,9 +84,12 @@ export default class Client {
         return this.request<Eightball>("8ball");
     }
 
+    /** Get a random headline */
     public async headline(): Promise<headline> {
         return this.request<headline>("headline");
     }
+
+
 
     /**
       *  Process a dagpi image

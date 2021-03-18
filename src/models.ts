@@ -85,6 +85,12 @@ export interface image_props {
 
     /** Wether or not to use Dark theme */
     dark?: boolean;
+
+    /** Wether or not to add top_text */
+    top_text? : string;
+
+    /** Wether or not to add bottom_text */
+    bottom_text? : string;
 } 
 
 /** Available Image features for DAGPI */
@@ -133,6 +139,21 @@ export type ImageFeature =
     | "captcha"
     | "pride"
     | "fedora"
+    | "america"
+    | "communism"
+    | "neon"
+    | "mosiac"
+    | "stringify"
+    | "delete"
+    | "freeze"
+    | "burn"
+    | "earth"
+    | "comic"
+    | "dissolve"
+    | "spin"
+    | "petpet"
+    | "neon"
+    | "sketch"
 
 /** Image formats returned by dagpi */
 export type format = 

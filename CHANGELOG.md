@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.1.3](https://github.com/daggy1234/dagpi.js/compare/v1.1.2...v1.1.3) (2021-03-18)
 
+new effects
+
+- mosiac, stringify, burn, freeze, dissolve, spin, neon, sketch, petpet
+- added top_text and bottom_text
+
 ### [1.1.2](https://github.com/daggy1234/dagpi.js/compare/v1.1.1...v1.1.2) (2021-03-09)
 
 Fixed Critcal Bug
