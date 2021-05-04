@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.1.4](https://github.com/daggy1234/dagpi.js/compare/v1.1.3...v1.1.4) (2021-05-04)
 
+new stuff
+
+- bonk
+- bomb
+- shake
+- spin
+- petpet
+- slap
+
 ### [1.1.3](https://github.com/daggy1234/dagpi.js/compare/v1.1.2...v1.1.3) (2021-03-18)
 
 new effects

@@ -152,8 +152,12 @@ export type ImageFeature =
     | "dissolve"
     | "spin"
     | "petpet"
-    | "neon"
     | "sketch"
+    | "glitch"
+    | "bonk"
+    | "bomb"
+    | "slap"
+    | "shake"
 
 /** Image formats returned by dagpi */
 export type format = 
