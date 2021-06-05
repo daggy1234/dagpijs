@@ -106,6 +106,17 @@ export default class Client {
         return this.image_request(feature, parmas);
     }
 
+    /**
+      *  Process a special dagpi feature!
+      * @param {image_props} params - a Javascript object with properties passed for manipulation
+      *     These include 
+      *     - url (required for every image)
+      * @returns {Promise<image>} image - contains a dagpijs image class
+      */
+    public async special_image(parmas: image_props): Promise<image> {
+        return this.image_request("special", parmas);
+    }
+
     private validate(url: string): boolean {
         const re = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
         return re.test(url);

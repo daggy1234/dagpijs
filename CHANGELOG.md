@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.1.5](https://github.com/daggy1234/dagpi.js/compare/v1.1.4...v1.1.5) (2021-06-05)
 
+- cube
+- mosiac
+- Brand new Special route
+
 ### [1.1.4](https://github.com/daggy1234/dagpi.js/compare/v1.1.3...v1.1.4) (2021-05-04)
 
 new stuff

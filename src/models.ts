@@ -158,6 +158,8 @@ export type ImageFeature =
     | "bomb"
     | "slap"
     | "shake"
+    | "cube"
+    | "mosiac"
 
 /** Image formats returned by dagpi */
 export type format = 
