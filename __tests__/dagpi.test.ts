@@ -39,7 +39,7 @@ test("Broken Url", async () => {
     const token = process.env.DAGPI_TOKEN!;
     const client = new Client(token);
     try {
-        const valid_img = await client.image_process("night",{
+        const _valid_img = await client.image_process("night",{
             url: bad_url
         });
     } catch(e: any) {
