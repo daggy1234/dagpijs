@@ -1,6 +1,6 @@
 {
   "name": "dagpijs",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A fast and strongly typed promise based wrapper for https://dagpi.xyz",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
