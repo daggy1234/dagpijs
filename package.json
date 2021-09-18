@@ -24,19 +24,24 @@
     "docs": "typedoc --readme README.md --exclude src/handlers.ts --out docs src",
     "lint": "eslint --ignore-path .gitignore \"**/*.ts\"",
     "release": "standard-version",
-    "lint:fix": "yarn lint --fix"
+    "lint:fix": "yarn lint --fix",
+    "test": "jest"
   },
   "dependencies": {
     "axios": "^0.21.1"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
+    "@types/jest": "^26.0.23",
     "@types/node": "^14.14.6",
     "@typescript-eslint/eslint-plugin": "^4.6.1",
     "@typescript-eslint/parser": "^4.6.1",
     "discord.js": "^12.4.1",
     "eslint": "^7.12.1",
+    "jest": "^27.0.4",
     "standard-version": "^9.0.0",
+    "ts-jest": "^27.0.3",
+    "ts-node": "^10.0.0",
     "typedoc": "^0.19.2",
     "typescript": "^4.0.5"
   }

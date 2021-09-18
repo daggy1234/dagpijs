@@ -1,11 +1,14 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import {Unauthorised, Ratelimited, ApiError, FileToLarge, ImageUnaccesible, ParameterError} from "./errors";
+import { RatelimitInfo } from "./models";
 
 
 export function error_response(error: any): Promise<never> {
     // eslint-disable-next-line no-var
     var js = error.response.data;
+
+    const resp = error.response;
     if (!(error.request.path.includes("data"))) {
         try {
             js = JSON.parse(error.response.data.toString("utf8"));
@@ -17,7 +20,12 @@ export function error_response(error: any): Promise<never> {
     case 403:
         throw new Unauthorised("Invalid Token provided");
     case 429:
-        throw new Ratelimited("You have maxed out requests for this minute");
+        const ratelimits: RatelimitInfo = {
+            ratelimit: parseInt(resp.headers["x-ratelimit-limit"]),
+            remaining : parseInt(resp.headers["x-ratelimit-remaining"]),
+            reset: new Date(parseInt(resp.headers["x-ratelimit-reset"]) * 1000),
+        };
+        throw new Ratelimited("You have maxed out requests for this minute", ratelimits);
     case 500:
         throw new ApiError("API had an Internal Server Error");
     case 413:

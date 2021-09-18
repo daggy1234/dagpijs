@@ -23,7 +23,10 @@ export default class image {
         this.process_time = time;
     }
 
-    /** Get the size of the Buffer */
+    /**
+     * get the size of the buffer
+     * @return {number} output size
+     */
     public size(): number {
         return this.image.length;
     }

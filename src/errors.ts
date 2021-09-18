@@ -6,6 +6,11 @@
  * @param {number} status: HTTP status code
  */
 
+import { RatelimitInfo } from "./models";
+
+/**
+ * Base Dagpi Error
+ */
 class DagpijsError extends Error {
 
     /** HTTP status code */
@@ -14,6 +19,12 @@ class DagpijsError extends Error {
     /** name of the error */
     public name: string;
 
+    /**
+     * A base dagpi error
+     * @param {string} message error message
+     * @param {string} name    error name
+     * @param {number} status  error status
+     */
     public constructor (message: string, name: string, status: number) {
         super(message);
         this.status = status;
@@ -38,8 +49,12 @@ class Unauthorised extends DagpijsError {
  * HTTP 429
  */
 class Ratelimited extends DagpijsError {
-    public constructor (message: string) {
+
+    public ratelimits: RatelimitInfo;
+
+    public constructor (message: string, rls: RatelimitInfo) {
         super(message, "Ratelimited", 429);
+        this.ratelimits = rls;
     }
 }
 

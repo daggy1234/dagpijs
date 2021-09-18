@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosResponse } from "axios";
-import { wtp, joke, logo, pickupline, roast, yomama, image_props, ImageFeature, format, fact, headline, Eightball } from "./models";
-import { Unauthorised, BadUrl } from "./errors";
+import { wtp, joke, logo, pickupline, roast, yomama, image_props, ImageFeature, format, fact, headline, Eightball, captcha, typeracer, RatelimitInfo } from "./models";
+import { Unauthorised, BadUrl, Ratelimited } from "./errors";
 import {error_response} from "./handlers";
 import image from "./image";
 
@@ -11,15 +11,19 @@ import image from "./image";
  */
 export default class Client {
 
-    /** Your dagpi token */
+    /** @type {string} dagpi token */
     public token: string
 
-    /** The AxiosIntance dagpi uses */
+    /** @type {AxiosInstance} The AxiosIntance dagpi uses */
     private http: AxiosInstance
 
-    /** The version of the API used */
+    /** @type {string} The version of the API used */
     public version: string
 
+    /** @type {RatelimitInfo} Get information about ratelimits */
+    public ratelimits: RatelimitInfo
+
+    /** Construct a new dagpi client */
     public constructor(token: string) {
         if (!token) {
             throw new Unauthorised("Please provide an api token");
@@ -28,7 +32,11 @@ export default class Client {
         this.http = axios.create({
             baseURL: "https://api.dagpi.xyz/"
         });
-
+        this.ratelimits =  {
+            ratelimit: 0,
+            remaining: 0,
+            reset: new Date()
+        };
         this.http.defaults.headers["Authorization"] = token;
         this.http.defaults.headers["User-Agent"] = "dagpi.js";
         this.http.interceptors.response.use((response: any) => {
@@ -89,7 +97,15 @@ export default class Client {
         return this.request<headline>("headline");
     }
 
+    /** Get a random captcha */
+    public async captcha(): Promise<captcha> {
+        return this.request<captcha>("captcha");
+    }
 
+    /** Get a random typeracer game data payload with sentence, and image */
+    public async typeracer(): Promise<typeracer> {
+        return this.request<typeracer>("typeracer");
+    }
 
     /**
       *  Process a dagpi image
@@ -117,13 +133,26 @@ export default class Client {
         return this.image_request("special", parmas);
     }
 
+
+    /**
+     * Validate a Url against regex
+     * @param  {string}  url url supplied
+     * @return {boolean}     wether valid or not
+     */
     private validate(url: string): boolean {
-        const re = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
+        const re = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/g;
         return re.test(url);
     }
 
+    
+    /**
+     * Private function to make Http request
+     * @param  {string}         path   route to be taken
+     * @param  {image_props}    params additional prarams
+     * @return {Promise<image>}        [description]
+     */
     private async image_request(path: string,  params: image_props): Promise<image> {
-
+        this.ratelimits.remaining--;
         if (this.validate(params.url) === false) {
             throw new BadUrl();
         }
@@ -131,7 +160,11 @@ export default class Client {
             params: params,
             responseType: "arraybuffer"
         });
-
+        this.ratelimits = {
+            ratelimit: parseInt(resp.headers["x-ratelimit-limit"]),
+            remaining : parseInt(resp.headers["x-ratelimit-remaining"]),
+            reset: new Date(parseInt(resp.headers["x-ratelimit-reset"]) * 1000),
+        };
 
         const filetype: string = resp.headers["content-type"].toLowerCase();
         const time: number = resp.data["X-Process-Time"];
@@ -145,8 +178,17 @@ export default class Client {
 
     }
 
+    /**
+     * Request
+     */
     private async request<T>(url: string): Promise<T> {
+        this.ratelimits.remaining--;
         const resp = await this.http.get(`data/${url}`);
+        this.ratelimits = {
+            ratelimit: parseInt(resp.headers["x-ratelimit-limit"]),
+            remaining : parseInt(resp.headers["x-ratelimit-remaining"]),
+            reset: new Date(parseInt(resp.headers["x-ratelimit-reset"]) * 1000),
+        };
         const data = resp.data;
         // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         return data;

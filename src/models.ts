@@ -4,6 +4,13 @@ export interface joke {
     joke: string;
 }
 
+
+export interface RatelimitInfo {
+    ratelimit: number;
+    remaining: number;
+    reset: Date;
+}
+
 /** Reprsents a Subpart of WTP object */
 interface mondata {
     abilities: Array<string>;
@@ -50,6 +57,17 @@ export interface headline {
     fake: boolean;
 }
 
+/** get a random sentence url with sentence */
+export interface typeracer {
+    sentence: string;
+    image: string;
+}
+
+/** get a random captcha and answer */
+export interface captcha {
+    image: string;
+    answer: string;
+}
 
 /** represents a dagpi roast */
 export interface roast {
@@ -160,6 +178,8 @@ export type ImageFeature =
     | "shake"
     | "cube"
     | "mosiac"
+    | "lego"
+    | "expand"
 
 /** Image formats returned by dagpi */
 export type format = 
