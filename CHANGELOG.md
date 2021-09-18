@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [2.0.1](https://github.com/daggy1234/dagpi.js/compare/v2.0.0...v2.0.1) (2021-09-18)
 
+- dependency bump
+
 ## [2.0.0](https://github.com/daggy1234/dagpi.js/compare/v1.1.5...v2.0.0) (2021-09-18)
 
 - lego
@@ -12,6 +14,7 @@ All notable changes to this project will be documented in this file. See [standa
 - typeracer
 - ratelimit info
 - better typing
+- tests
 
 ### [1.1.5](https://github.com/daggy1234/dagpi.js/compare/v1.1.4...v1.1.5) (2021-06-05)
 
