@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosResponse } from "axios";
 import { wtp, joke, logo, pickupline, roast, yomama, image_props, ImageFeature, format, fact, headline, Eightball, captcha, typeracer, RatelimitInfo } from "./models";
-import { Unauthorised, BadUrl, Ratelimited } from "./errors";
+import { Unauthorised, BadUrl } from "./errors";
 import {error_response} from "./handlers";
 import image from "./image";
 
