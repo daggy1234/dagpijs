@@ -42,7 +42,7 @@ test("Broken Url", async () => {
         const valid_img = await client.image_process("night",{
             url: bad_url
         });
-    } catch(e) {
+    } catch(e: any) {
         expect(e.message).toEqual("URL is badly framed");
     }
 
