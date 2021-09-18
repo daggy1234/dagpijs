@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Eightball | dagpijs</title>
+	<title>RatelimitInfo | dagpijs</title>
 	<meta name="description" content="Documentation for dagpijs">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,28 +59,21 @@
 					<a href="../modules/_models_.html">&quot;models&quot;</a>
 				</li>
 				<li>
-					<a href="_models_.eightball.html">Eightball</a>
+					<a href="_models_.ratelimitinfo.html">RatelimitInfo</a>
 				</li>
 			</ul>
-			<h1>Interface Eightball</h1>
+			<h1>Interface RatelimitInfo</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Dagpi 8ball response</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Eightball</span>
+						<span class="target">RatelimitInfo</span>
 					</li>
 				</ul>
 			</section>
@@ -91,7 +84,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_models_.eightball.html#response" class="tsd-kind-icon">response</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_models_.ratelimitinfo.html#ratelimit" class="tsd-kind-icon">ratelimit</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_models_.ratelimitinfo.html#remaining" class="tsd-kind-icon">remaining</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_models_.ratelimitinfo.html#reset" class="tsd-kind-icon">reset</a></li>
 							</ul>
 						</section>
 					</div>
@@ -100,12 +95,32 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="response" class="tsd-anchor"></a>
-					<h3>response</h3>
-					<div class="tsd-signature tsd-kind-icon">response<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="ratelimit" class="tsd-anchor"></a>
+					<h3>ratelimit</h3>
+					<div class="tsd-signature tsd-kind-icon">ratelimit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Daggy1234/dagpijs/blob/65e14b6/src/models.ts#L47">src/models.ts:47</a></li>
+							<li>Defined in <a href="https://github.com/Daggy1234/dagpijs/blob/65e14b6/src/models.ts#L9">src/models.ts:9</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="remaining" class="tsd-anchor"></a>
+					<h3>remaining</h3>
+					<div class="tsd-signature tsd-kind-icon">remaining<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Daggy1234/dagpijs/blob/65e14b6/src/models.ts#L10">src/models.ts:10</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="reset" class="tsd-anchor"></a>
+					<h3>reset</h3>
+					<div class="tsd-signature tsd-kind-icon">reset<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Daggy1234/dagpijs/blob/65e14b6/src/models.ts#L11">src/models.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -133,21 +148,27 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_models_.eightball.html" class="tsd-kind-icon">Eightball</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="_models_.eightball.html" class="tsd-kind-icon">Eightball</a>
+						<a href="_models_.ratelimitinfo.html" class="tsd-kind-icon">Ratelimit<wbr>Info</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_models_.eightball.html#response" class="tsd-kind-icon">response</a>
+								<a href="_models_.ratelimitinfo.html#ratelimit" class="tsd-kind-icon">ratelimit</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_models_.ratelimitinfo.html#remaining" class="tsd-kind-icon">remaining</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_models_.ratelimitinfo.html#reset" class="tsd-kind-icon">reset</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_models_.ratelimitinfo.html" class="tsd-kind-icon">Ratelimit<wbr>Info</a>
-					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_models_.captcha.html" class="tsd-kind-icon">captcha</a>
 					</li>
