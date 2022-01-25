@@ -3,6 +3,7 @@ import { Unauthorised } from "../src/errors";
 
 const image_url = "https://cdn.discordapp.com/avatars/491174779278065689/6f2a16eeb9c990980905fa11c56858d5.png?size=1024";
 const bad_url = "httpsgoogle.com";
+process.env.DAGPI_TOKEN = "MTYyMDkwMzA1NQ.Dw2R9Fa6iLaPKebpiGDtDwOuqYRko1fV.614b2f93cf3ba64f";
 
 
 test("Client Init Errors", () => {
@@ -39,7 +40,7 @@ test("Broken Url", async () => {
     const token = process.env.DAGPI_TOKEN!;
     const client = new Client(token);
     try {
-        const _valid_img = await client.image_process("night",{
+        await client.image_process("night",{
             url: bad_url
         });
     } catch(e: any) {
