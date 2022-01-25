@@ -30,7 +30,7 @@ test("Get WTP data", async () => {
 test("Sample Image Processing", async () => {
     const token = process.env.DAGPI_TOKEN!;
     const client = new Client(token);
-    const valid_img = await client.image_process("night",{
+    const valid_img = await client.image_process("gay",{
         url: image_url
     });
     expect(valid_img).toHaveProperty("image");
