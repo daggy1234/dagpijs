@@ -180,6 +180,11 @@ export type ImageFeature =
     | "mosiac"
     | "lego"
     | "expand"
+    | "album"
+    | "glitchstatic"
+    | "elmo"
+    | "tv"
+    | "rain"
 
 /** Image formats returned by dagpi */
 export type format = 

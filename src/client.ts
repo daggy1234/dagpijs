@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import axios, { AxiosInstance, AxiosResponse } from "axios";
 import { wtp, joke, logo, pickupline, roast, yomama, image_props, ImageFeature, format, fact, headline, Eightball, captcha, typeracer, RatelimitInfo } from "./models";
 import { Unauthorised, BadUrl } from "./errors";
@@ -12,16 +13,16 @@ import image from "./image";
 export default class Client {
 
     /** @type {string} dagpi token */
-    public token: string
+    public token: string;
 
     /** @type {AxiosInstance} The AxiosIntance dagpi uses */
-    private http: AxiosInstance
+    private http: AxiosInstance;
 
     /** @type {string} The version of the API used */
-    public version: string
+    public version: string;
 
     /** @type {RatelimitInfo} Get information about ratelimits */
-    public ratelimits: RatelimitInfo
+    public ratelimits: RatelimitInfo;
 
     /** Construct a new dagpi client */
     public constructor(token: string) {
@@ -37,9 +38,9 @@ export default class Client {
             remaining: 0,
             reset: new Date()
         };
-        this.http.defaults.headers["Authorization"] = token;
-        this.http.defaults.headers["User-Agent"] = "dagpi.js";
-        this.http.interceptors.response.use((response: any) => {
+        this.http.defaults.headers.common["Authorization"] = token;
+        this.http.defaults.headers.common["User-Agent"] = "dagpi.js";
+        this.http.interceptors.response.use((response) => {
             // eslint-disable-next-line @typescript-eslint/no-unsafe-return
             return response;
         }, (error) => error_response(error));
